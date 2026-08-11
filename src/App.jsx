@@ -1,10 +1,22 @@
 import './App.css'
-import HookForm from './components/HookForm/HookForm'
+import ReusableForm from './components/ReusableForm/ReusableForm'
+// import HookForm from './components/HookForm/HookForm'
 // import RefForm from './components/RefForm/RefForm'
 // import SimpleForm from './components/SimpleForm/SimpleForm'
 // import StatefullForm from './components/StatefullForm/StatefullForm'
 
 function App() {
+
+  const handleSignUpSubmit = data => {
+    // data.preventDefault();
+    console.log('sign up data', data);
+  }
+
+  const handleUpdateProfile = data => {
+    // data.preventDefault();
+    console.log('profile update data', data);
+
+  }
 
   return (
     <>
@@ -12,7 +24,13 @@ function App() {
       {/* <SimpleForm /> */}
       {/* <StatefullForm /> */}
       {/* <RefForm /> */}
-      <HookForm />
+      {/* <HookForm /> */}
+      <ReusableForm formTitle={ 'Sign Up' } 
+        handleSubmit={handleSignUpSubmit} />
+      <br />
+      <ReusableForm formTitle={ 'Profile Update' } 
+        handleSubmit={handleUpdateProfile} 
+        submitBtnText='Update' />
       
     </>  )
 }
